@@ -1,0 +1,11 @@
+python -m vllm.entrypoints.openai.api_server \
+    --model /root/autodl-tmp/qwen3-4b-think-local \
+    --served-model-name qwen3-4b-think-mine \
+    --gpu-memory-utilization 0.9 \
+    --max-model-len 32768 \
+    --enable-lora \
+    --lora-modules lora=/root/saves/Qwen3-4B-Thinking-2507/lora/train_2026-01-07-23-25-37/checkpoint-2200 \
+    --enable-auto-tool-choice \
+    --tool-call-parser qwen3_coder \
+    --chat-template /root/autodl-tmp/zhipu/qwen.jinja \
+    --reasoning-parser qwen3
